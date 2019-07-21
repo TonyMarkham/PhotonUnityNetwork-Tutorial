@@ -1,5 +1,14 @@
-# PhotonUnityNetwork-Tutorial
+# PUN2 Basic Tutorial
 
-## 0. Introduction
+## Content
 
-The PUN Basic Tutorial is a Unity based tutorial. It will show you how to develop your own multiplayer enabled application powered by Photon Cloud and how to use Characters using Animator for their animations. We'll learn along the way many important features, tips and tricks to get a good overview of the approach to network based development with PUN.
+0. [Introduction](./Docs/0_-_Introduction.md)
+1. [Lobby](./Docs/1_-_Lobby.md)
+2. [Lobby UI](./Docs/2_-_LobbyUI.md)
+3. [Game Scenes](./Docs/3_-_GameScenes.md)
+4. [Game Manager & Levels](./Docs/4_-_GameManagerLevels.md)
+5. [Building the Player](./Docs/5_-_BuildingThePlayer.md)
+6. [Player Camera Work](./Docs/6_-_PlayerCameraWork.md)
+7. [Player Networking](./Docs/7_-_PlayerNetworking.md)
+8. [Player Instantiation](./Docs/8_-__PlayerInstantiation.md)
+9. [Player UI Prefab](./Docs/9_-_PlayerUIPrefab.md)
