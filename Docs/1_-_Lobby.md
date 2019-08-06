@@ -260,6 +260,11 @@ So, now we don't force the script to use a static MaxPlayers value, we simply ne
 ## **Full Source Code**
 
 ### **Launcher.cs**
+
+<details>
+<summary>Click to see 'Launcher.cs'</summary>
+<p>
+
 ```c#
 using UnityEngine;
 using Photon.Pun;
@@ -381,4 +386,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     #endregion
 
 }
-```
+\```
+
+</p>
+</details>
