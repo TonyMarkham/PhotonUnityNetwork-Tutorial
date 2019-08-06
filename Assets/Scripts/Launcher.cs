@@ -29,6 +29,19 @@ namespace com.unity.photon
         #endregion
 
 
+        #region Public Fields
+
+        [Tooltip("The UI Panel to let the user enter name, connect and play")]
+        [SerializeField]
+        private GameObject controlPanel;
+
+        [Tooltip("The UI Label to inform the user that the connection is in progress")]
+        [SerializeField]
+        private GameObject progressLabel;
+
+        #endregion
+
+
         #region MonoBehaviour CallBacks
 
         /// <summary>
@@ -47,7 +60,8 @@ namespace com.unity.photon
         /// </summary>
         void Start()
         {
-            Connect();
+            progressLabel.SetActive(false);
+            controlPanel.SetActive(true);
         }
 
         #endregion
@@ -68,6 +82,9 @@ namespace com.unity.photon
         public override void OnDisconnected(DisconnectCause cause)
         {
             Debug.LogWarningFormat("PUN Basics Tutorial/Launcher: `OnDisconnected()` was called by PUN with reason: {0}.", cause);
+
+            progressLabel.SetActive(false);
+            controlPanel.SetActive(true);
         }
 
         public override void OnJoinRandomFailed(short returnCode, string message)
@@ -83,6 +100,9 @@ namespace com.unity.photon
 
         public override void OnJoinedRoom()
         {
+            progressLabel.SetActive(false);
+            controlPanel.SetActive(false);
+
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
         }
 
@@ -98,6 +118,9 @@ namespace com.unity.photon
         /// </summary>
         public void Connect()
         {
+            progressLabel.SetActive(true);
+            controlPanel.SetActive(false);
+
             // we check if we are connected or not,
             // we join if we are,
             // else we initiate the connection to the server.
