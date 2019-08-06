@@ -262,8 +262,10 @@ So, now we don't force the script to use a static MaxPlayers value, we simply ne
 ### **Launcher.cs**
 
 <details>
-<summary>Click to see 'Launcher.cs'</summary>
-<p>
+    <summary>
+        Click to see 'Launcher.cs'
+    </summary>
+    <p>
 
 ```c#
 using UnityEngine;
@@ -386,7 +388,14 @@ public class Launcher : MonoBehaviourPunCallbacks
     #endregion
 
 }
-\```
+```
 
 </p>
 </details>
+
+
+<div style="text-align: right">
+
+[Back to Top](#Contents)
+
+</div>
