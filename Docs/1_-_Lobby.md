@@ -1,4 +1,4 @@
-# **Photon Unity Network - Tutorial**
+# **Photon Unity Network Tutorial**
 
 ## **1 - Lobby**
 
@@ -400,6 +400,6 @@ namespace com.unity.photon
 
 <div style="text-align: right">
 
-[Back to Top](#Contents)
+[Back to Top](#Photon-Unity-Network-Tutorial)
 
 </div>
