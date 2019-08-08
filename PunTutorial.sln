@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Utili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Utilities.Culling.Editor", "PhotonUnityNetworking.Utilities.Culling.Editor.csproj", "{89C94743-11A6-F232-D533-C3E394F70187}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{9AA65C38-77A9-BC8F-ED59-2E76D35074A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{89C94743-11A6-F232-D533-C3E394F70187}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89C94743-11A6-F232-D533-C3E394F70187}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89C94743-11A6-F232-D533-C3E394F70187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA65C38-77A9-BC8F-ED59-2E76D35074A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA65C38-77A9-BC8F-ED59-2E76D35074A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA65C38-77A9-BC8F-ED59-2E76D35074A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA65C38-77A9-BC8F-ED59-2E76D35074A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
