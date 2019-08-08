@@ -1,6 +1,6 @@
 # Photon Unity Network Tutorial
 
-## 3. Game Scenes
+## 4. Game Manager and Levels
 
 This section covers the creation of the various scenes where players will be playing.
 

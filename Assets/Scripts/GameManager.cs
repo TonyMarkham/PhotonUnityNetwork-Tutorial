@@ -7,6 +7,23 @@ namespace com.unity.photon
 {
     public class GameManager : MonoBehaviourPunCallbacks
     {
+        #region Public Fields
+
+        public static GameManager Instance;
+
+        #endregion
+
+
+        #region MonoBehaviour CallBacks
+
+        void Start()
+        {
+            Instance = this;
+        }
+
+        #endregion
+
+
         #region MonoBehaviourPunCallbacks CallBacks
 
         /// <summary>
