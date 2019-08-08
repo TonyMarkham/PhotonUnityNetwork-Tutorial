@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 8256276828840857248}
   - component: {fileID: 5117853517101353100}
   - component: {fileID: 32760048749887621}
+  - component: {fileID: 6804538902637826032}
   m_Layer: 0
   m_Name: MyRobotKyle
   m_TagString: Untagged
@@ -315,7 +316,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b74683705aa084a93132575ef12ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 1
   beams: {fileID: 1927064858172609665}
+--- !u!114 &6804538902637826032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3656868533521181741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6585fd2c52a6e418de550ac44cefd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 7
+  height: 3
+  heightSmoothLag: 0.3
+  centerOffset: {x: 0, y: 4, z: 0}
+  followOnStart: 1
 --- !u!1 &3656868533521181743
 GameObject:
   m_ObjectHideFlags: 0
