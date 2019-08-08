@@ -7,7 +7,7 @@ namespace com.unity.photon
     /// Player manager.
     /// Handles fire Input and Beams.
     /// </summary>
-    public class PlayerManager : MonoBehaviourPunCallbacks
+    public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         #region Private Fields
 
@@ -37,6 +37,26 @@ namespace com.unity.photon
             else
             {
                 beams.SetActive(false);
+            }
+        }
+
+        /// <summary>
+        /// MonoBehaviour method called on GameObject by Unity during initialization phase.
+        /// </summary>
+        void Start()
+        {
+            CameraWork _cameraWork = this.gameObject.GetComponent<CameraWork>();
+
+            if (_cameraWork != null)
+            {
+                if (photonView.IsMine)
+                {
+                    _cameraWork.OnStartFollowing();
+                }
+            }
+            else
+            {
+                Debug.LogError("<Color=Red><a>Missing</a></Color> CameraWork Component on playerPrefab.", this);
             }
         }
 
@@ -103,6 +123,29 @@ namespace com.unity.photon
             // we slowly affect health when beam is constantly hitting us, so player has to move to prevent death.
             Health -= 0.1f * Time.deltaTime;
         }
+
+        #endregion
+
+
+        #region IPunObservable implementation
+
+
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+            if (stream.IsWriting)
+            {
+                // We own this player: send the others our data
+                stream.SendNext(IsFiring);
+                stream.SendNext(Health);
+            }
+            else
+            {
+                // Network player, receive data
+                this.IsFiring = (bool)stream.ReceiveNext();
+                this.Health = (float)stream.ReceiveNext();
+            }
+        }
+
 
         #endregion
 
