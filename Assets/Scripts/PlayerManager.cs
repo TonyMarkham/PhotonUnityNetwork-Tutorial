@@ -11,18 +11,27 @@ namespace com.unity.photon
     {
         #region Private Fields
 
-        [Tooltip("The current Health of our player")]
-        public float Health = 1f;
-
         [Tooltip("The Beams GameObject to control")]
         [SerializeField]
         private GameObject beams;
 
-        [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
-        public static GameObject LocalPlayerInstance;
+        [Tooltip("The Player's UI GameObject Prefab")]
+        [SerializeField]
+        private GameObject playerUiPrefab;
 
         //True, when the user is firing
         bool IsFiring;
+
+        #endregion
+
+
+        #region Public Fields
+
+        [Tooltip("The current Health of our player")]
+        public float Health = 1f;
+
+        [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
+        public static GameObject LocalPlayerInstance;
 
         #endregion
 
@@ -72,6 +81,16 @@ namespace com.unity.photon
             {
                 Debug.LogError("<Color=Red><a>Missing</a></Color> CameraWork Component on playerPrefab.", this);
             }
+
+            if (playerUiPrefab != null)
+            {
+                GameObject _uiGo = Instantiate(playerUiPrefab);
+                _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+            }
+            else
+            {
+                Debug.LogWarning("<Color=Red><a>Missing</a></Color> PlayerUiPrefab reference on player Prefab.", this);
+            }
         }
 
         /// <summary>
@@ -116,6 +135,7 @@ namespace com.unity.photon
             }
             Health -= 0.1f;
         }
+
         /// <summary>
         /// MonoBehaviour method called once per frame for every Collider 'other' that is touching the trigger.
         /// We're going to affect health while the beams are touching the player
@@ -136,6 +156,24 @@ namespace com.unity.photon
             }
             // we slowly affect health when beam is constantly hitting us, so player has to move to prevent death.
             Health -= 0.1f * Time.deltaTime;
+        }
+
+        /// <summary>
+        /// MonoBehaviour method called after a new level of index 'level' was loaded.
+        /// We recreate the Player UI because it was destroy when we switched level.
+        /// Also reposition the player if outside the current arena.
+        /// </summary>
+        /// <param name="level">Level index loaded</param>
+        void CalledOnLevelWasLoaded(int level)
+        {
+            // check if we are outside the Arena and if it's the case, spawn around the center of the arena in a safe zone
+            if (!Physics.Raycast(transform.position, -Vector3.up, 5f))
+            {
+                transform.position = new Vector3(0f, 5f, 0f);
+            }
+
+            GameObject _uiGo = Instantiate(this.playerUiPrefab);
+            _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
         }
 
         #endregion
